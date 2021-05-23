@@ -1,0 +1,28 @@
+#{extends 'main.html' /}
+#{set title:'Station' /}
+
+#{menu id:"dashboard"/}
+
+<section class="ui segment">
+  <div class="ui equal width center aligned padded grid"">
+    <div class="five column row">
+      <div class="olive column">
+        ${station.name}
+      </div>
+      <div class="black column">
+        Black
+      </div>
+      <div class="black column">
+        Olive
+      </div>
+      <div class="black column">
+        Black
+      </div>
+      <div class="black column">
+        Olive
+      </div>
+    </div>
+  </div>
+  #{readingslist station:station /}
+  #{addreading station:station /}
+</section>

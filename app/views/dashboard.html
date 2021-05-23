@@ -1,0 +1,35 @@
+#{extends 'main.html' /}
+#{set title:'Dashboard' /}
+
+#{menu id:"dashboard"/}
+
+#{list items:stations, as:'station'}
+  <section class="ui segment">
+    <div class="ui equal width center aligned padded grid">
+      <div class="row">
+        <div class="olive column">
+          ${station.name}
+        </div>
+        <div class="black column">
+          Black
+        </div>
+        <div class="black column">
+          Olive
+        </div>
+        <div class="black column">
+          Black
+        </div>
+        <div class="black column">
+          Olive
+        </div>
+      </div>
+    </div>
+      <a href="/stations/${station.id}" class="ui icon button">
+        <i class="icon folder open"></i>
+      </a>
+      <a href="/dashboard/deletestation/${station.id}" class="ui icon button">
+        <i class="icon trash"></i>
+      </a>
+  </section>
+#{/list}
+#{addstation /}
