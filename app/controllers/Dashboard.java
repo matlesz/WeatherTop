@@ -2,8 +2,10 @@ package controllers;
 
 import models.Member;
 import models.Station;
+import models.Reading;
 import play.Logger;
 import play.mvc.Controller;
+import utils.StationAnalytics;
 
 import java.util.List;
 
@@ -13,13 +15,22 @@ public class Dashboard extends Controller
 {
   private static String name;
 
-  public static void index()
-  {
+  public static void index() {
     Logger.info("Rendering Dasboard");
     Member member = Accounts.getLoggedInMember();
     List<Station> stations = member.stations;
-    //member.stations.latestTemperatureC = getLatestTemperatureC(member.stations.readings);
-    render ("dashboard.html", stations);
+    for (Station station : stations) {
+      List<Reading> readings = station.readings;
+      if (readings.size() > 0) {
+        Reading latestReading = readings.get(readings.size() - 1);
+        station.latestTemperatureC = StationAnalytics.getLatestTemperatureC(station.readings);
+        station.latestTemperatureF = StationAnalytics.getLatestTemperatureF(station.readings);
+        station.latestPressure = StationAnalytics.getLatestPressure(station.readings);
+        station.latestWindSpeed = StationAnalytics.getLatestWindSpeed(station.readings);
+        station.weatherCode = StationAnalytics.getWeatherCode(station.readings);
+      }
+    }
+    render("dashboard.html", stations);
   }
 
   public static void deleteStation(Long id)

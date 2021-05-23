@@ -8,10 +8,13 @@
     <div class="ui equal width center aligned padded grid">
       <div class="row">
         <div class="olive column">
-          ${station.name}
+          ${station.name}<br>
+          Lat: ${station.latitude}<br>
+          Lng: ${station.longitude}
         </div>
         <div class="blue column">
-          Weather
+          Weather<br>
+          ${station.weatherCode}
         </div>
         <div class="green column">
           Temp<br>
@@ -19,10 +22,12 @@
           ${station.latestTemperatureF} F
         </div>
         <div class="grey column">
-          Wind
+          Wind<br>
+          ${station.latestWindSpeed} km/H<br>
         </div>
         <div class="purple column">
-          Pressure
+          Pressure<br>
+          ${station.latestPressure} hPa
         </div>
       </div>
     </div>
