@@ -1,14 +1,16 @@
 package utils;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import java.util.List;
-import models.Station;
+
 import models.Reading;
 import play.mvc.Controller;
 
 
 
-public class StationAnalytics extends Controller
-{
+public class StationAnalytics extends Controller {
   public static Double getLatestTemperatureC(List<Reading> readings) {
     Double latestTemperatureC = null;
     if (readings.size() > 0) {
@@ -43,41 +45,27 @@ public class StationAnalytics extends Controller
 
   public static String getWeatherCode(List<Reading> readings) {
     String weatherCode = null;
-    if (readings.size() >0)
-      if(readings.get(readings.size() - 1).code == 100){
+    if (readings.size() > 0)
+      if (readings.get(readings.size() - 1).code == 100) {
         return "Clear";
-      }
-      else if(readings.get(readings.size() - 1).code == 200){
-            return "Partial Clouds";
-          }
-      else if(readings.get(readings.size() - 1).code == 300){
+      } else if (readings.get(readings.size() - 1).code == 200) {
+        return "Partial Clouds";
+      } else if (readings.get(readings.size() - 1).code == 300) {
         return "Cloudy";
-      }
-      else if(readings.get(readings.size() - 1).code == 400){
+      } else if (readings.get(readings.size() - 1).code == 400) {
         return "Light Showers";
-      }
-      else if(readings.get(readings.size() - 1).code == 500){
+      } else if (readings.get(readings.size() - 1).code == 500) {
         return "Heavy Showers";
-      }
-      else if(readings.get(readings.size() - 1).code == 600){
+      } else if (readings.get(readings.size() - 1).code == 600) {
         return "Rain";
-      }
-      else if(readings.get(readings.size() - 1).code == 700){
+      } else if (readings.get(readings.size() - 1).code == 700) {
         return "Snow";
-      }
-    else {
-      return "Thunder";
+      } else {
+        return "Thunder";
       }
     return weatherCode;
   }
 }
-
-
-
-
-  //public static String getLatestWeather(List<Reading> readings) {
-  //  String
-  // }
 
 
 

@@ -31,10 +31,5 @@ public class Station extends Model
     this.name = name;
     this.latitude = latitude;
     this.longitude = longitude;
-    //this.latestTemperatureC = latestTemperatureC;
-   //this.latestTemperatureF = latestTemperatureF;
-    //this.latestPressure = latestPressure;
   }
 }
-
-//double latestTemperatureC, double latestTemperatureF, int latestPressure)
