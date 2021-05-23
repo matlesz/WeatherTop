@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 import play.db.jpa.Model;
+import utils.StationAnalytics;
 
 @Entity
 public class Station extends Model
@@ -15,13 +16,25 @@ public class Station extends Model
   public String name;
   @OneToMany(cascade = CascadeType.ALL)
   public List<Reading> readings = new ArrayList<Reading>();
-  public int latitude;
-  public int longitude;
+  public float latitude;
+  public float longitude;
 
-  public Station(String name, int latitude, int longitude)
+  public double latestTemperatureC;
+  public double latestTemperatureF;
+  public Integer latestPressure;
+  public Integer latestWindSpeed;
+  public String weatherCode;
+
+
+  public Station(String name, float latitude, float longitude)
   {
     this.name = name;
     this.latitude = latitude;
     this.longitude = longitude;
+    //this.latestTemperatureC = latestTemperatureC;
+   //this.latestTemperatureF = latestTemperatureF;
+    //this.latestPressure = latestPressure;
   }
 }
+
+//double latestTemperatureC, double latestTemperatureF, int latestPressure)

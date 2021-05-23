@@ -4,22 +4,29 @@
 #{menu id:"dashboard"/}
 
 <section class="ui segment">
-  <div class="ui equal width center aligned padded grid"">
-    <div class="five column row">
+  <div class="ui equal width center aligned padded grid">
+    <div class="row">
       <div class="olive column">
-        ${station.name}
+        ${station.name}<br>
+        Lat: ${station.latitude}<br>
+        Lng: ${station.longitude}
       </div>
-      <div class="black column">
-        Black
+      <div class="blue column">
+        Weather<br>
+        ${station.weatherCode}
       </div>
-      <div class="black column">
-        Olive
+      <div class="green column">
+        Temp<br>
+        ${station.latestTemperatureC} C<br>
+        ${station.latestTemperatureF} F
       </div>
-      <div class="black column">
-        Black
+      <div class="grey column">
+        Wind<br>
+        ${station.latestWindSpeed} km/H<br>
       </div>
-      <div class="black column">
-        Olive
+      <div class="purple column">
+        Pressure<br>
+        ${station.latestPressure} hPa
       </div>
     </div>
   </div>

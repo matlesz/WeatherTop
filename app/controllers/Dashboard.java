@@ -1,11 +1,13 @@
 package controllers;
 
-import java.util.List;
-
 import models.Member;
 import models.Station;
 import play.Logger;
 import play.mvc.Controller;
+
+import java.util.List;
+
+import static utils.StationAnalytics.*;
 
 public class Dashboard extends Controller
 {
@@ -16,6 +18,7 @@ public class Dashboard extends Controller
     Logger.info("Rendering Dasboard");
     Member member = Accounts.getLoggedInMember();
     List<Station> stations = member.stations;
+    //member.stations.latestTemperatureC = getLatestTemperatureC(member.stations.readings);
     render ("dashboard.html", stations);
   }
 

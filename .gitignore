@@ -5,4 +5,7 @@ tmp
 .classpath
 .project
 .idea
-station.iml
+
+*.iml
+*.ipr
+*.iws
